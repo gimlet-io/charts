@@ -1,0 +1,20 @@
+[
+  {
+    "schemaIDs": [
+      "#redis"
+    ],
+    "uiSchema": {
+      "#redis": {
+        "encryptedPassword": {
+          "ui:field": "encryptedSingleLineWidget"
+        }
+      }
+    },
+    "metaData": {
+      "link": {
+        "label": "Redis",
+        "href": "https://gimlet.io/docs/databases/redis"
+      }
+    }
+  }
+]
