@@ -4,7 +4,7 @@
       "#postgresql"
     ],
     "uiSchema": {
-      "#redis": {
+      "#postgresql": {
         "encryptedPassword": {
           "ui:field": "encryptedSingleLineWidget"
         }
