@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "#rabbitmq",
+  "title": "RabbitMQ",
+  "description": "A containerized RabbitMQ dedicated for your application",
+  "type": "object",
+  "properties": {
+    "user": {
+      "$id": "#/properties/user",
+      "type": "string",
+      "title": "Username"
+    },
+    "encryptedPassword": {
+      "$id": "#/properties/encryptedPassword",
+      "type": "string",
+      "title": "Password"
+    }
+  }
+}
