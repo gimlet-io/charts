@@ -31,16 +31,16 @@ spec:
     #replica:
     #  replicaCount: 1
     commonAnnotations:
-    {{- if .gitRepository }}
-    gimlet.io/git-repository: {{ .gitRepository }}
-    {{- $parts := split "/" .gitRepository }}
-    v1alpha1.opensca.dev/vcs.owner: {{ $parts._0 }}
-    v1alpha1.opensca.dev/vcs.name: {{ $parts._1 }}
-    {{- end }}
-    {{- if .gitSha }}
-    gimlet.io/git-sha: {{ .gitSha }}
-    v1alpha1.opensca.dev/version.sha: {{ .gitSha }}
-    {{- end }}
+      {{- if .gitRepository }}
+      gimlet.io/git-repository: {{ .gitRepository }}
+      {{- $parts := split "/" .gitRepository }}
+      v1alpha1.opensca.dev/vcs.owner: {{ $parts._0 }}
+      v1alpha1.opensca.dev/vcs.name: {{ $parts._1 }}
+      {{- end }}
+      {{- if .gitSha }}
+      gimlet.io/git-sha: {{ .gitSha }}
+      v1alpha1.opensca.dev/version.sha: {{ .gitSha }}
+      {{- end }}
     auth:
       existingSecret: "{{ .name }}-credentials"
     commonConfiguration: |-
