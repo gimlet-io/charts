@@ -31,9 +31,7 @@ spec:
     #replica:
     #  replicaCount: 1
     commonAnnotations:
-      {{- if .belongsTo }}
-      gimlet.io/belongs-to: {{ .belongsTo }}
-      {{- end }}
+      gimlet.io/belongs-to: {{ .app }}
     auth:
       existingSecret: "{{ .name }}-credentials"
     commonConfiguration: |-
