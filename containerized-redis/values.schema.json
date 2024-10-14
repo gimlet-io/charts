@@ -9,6 +9,12 @@
       "$id": "#/properties/encryptedPassword",
       "type": "string",
       "title": "Password"
+    },
+    "app": {
+      "$id": "#/properties/app",
+      "type": "string",
+      "title": "App",
+      "default": "{{ .APP }}"
     }
   }
 }

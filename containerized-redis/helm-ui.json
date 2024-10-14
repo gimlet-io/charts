@@ -7,6 +7,9 @@
       "#redis": {
         "encryptedPassword": {
           "ui:field": "encryptedSingleLineWidget"
+        },
+        "app": {
+          "ui:widget": "hidden"
         }
       }
     },
