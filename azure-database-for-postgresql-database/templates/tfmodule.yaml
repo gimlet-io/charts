@@ -7,8 +7,16 @@ metadata:
 spec:
   interval: 24h0m0s
   ref:
-    commit: {{ .Values.hash }}
-  url: {{ .Values.url }}
+    {{- if .Values.tfModule.tag }}
+    tag: {{ .Values.tfModule.tag }}
+    {{- end }}
+    {{- if .Values.tfModule.branch }}
+    branch: {{ .Values.tfModule.branch }}
+    {{- end }}
+    {{- if .Values.tfModule.hash }}
+    commit: {{ .Values.tfModule.hash }}
+    {{- end }}
+  url: {{ .Values.tfModule.url }}
 ---
 apiVersion: infra.contrib.fluxcd.io/v1alpha2
 kind: Terraform
@@ -18,7 +26,7 @@ metadata:
 spec:
   approvePlan: auto
   interval: 24h0m0s
-  path: {{ .Values.path }}
+  path: {{ .Values.tfModule.path }}
   sourceRef:
     kind: GitRepository
     name: {{ template "robustName" .Release.Name }}
