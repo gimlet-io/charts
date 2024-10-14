@@ -1,2 +1,1 @@
-# plain-modules
-Plain manifest modules for gitops provisioning 
+# Helm Charts Packaged as Gimlet Dependencies
