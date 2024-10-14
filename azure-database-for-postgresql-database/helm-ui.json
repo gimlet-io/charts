@@ -1,10 +1,10 @@
 [
   {
     "schemaIDs": [
-      "#tfmodule"
+      "#azuredb"
     ],
     "uiSchema": {
-      "#tfmodule": {
+      "#azuredb": {
         "password": {
           "ui:field": "encryptedSingleLineWidget"
         }

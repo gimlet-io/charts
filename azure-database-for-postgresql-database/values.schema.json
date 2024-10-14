@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "#tfmodule",
+  "$id": "#azuredb",
   "type": "object",
   "title": "Azure Database for PostgreSQL Database",
   "description": "Provisions a schema with user and password in an existing Azure Database for PostgreSQL instance",
