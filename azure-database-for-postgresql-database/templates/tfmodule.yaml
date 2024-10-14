@@ -3,7 +3,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
   name: {{ template "robustName" .Release.Name }}
-  namespace: {{ .Release.Namespace }}
+  namespace: flux-system
 spec:
   interval: 24h0m0s
   ref:
@@ -22,7 +22,7 @@ apiVersion: infra.contrib.fluxcd.io/v1alpha2
 kind: Terraform
 metadata:
   name: {{ template "robustName" .Release.Name }}
-  namespace: {{ .Release.Namespace }}
+  namespace: flux-system
 spec:
   approvePlan: auto
   interval: 24h0m0s
