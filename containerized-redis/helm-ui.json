@@ -12,8 +12,8 @@
     },
     "metaData": {
       "link": {
-        "label": "Redis",
-        "href": "https://gimlet.io/docs/databases/redis"
+        "label": "Containerized Redis",
+        "href": "https://github.com/gimlet-io/charts/tree/main/containerized-redis/Readme.md"
       }
     }
   }

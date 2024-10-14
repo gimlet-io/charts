@@ -3,8 +3,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: "{{ .name }}-bitnami"
-  namespace: {{ .namespace }}
+  name: {{ template "robustName" .Release.Name }}
+  namespace: {{ .Release.Namespace }}
 spec:
   interval: 60m
   url: https://charts.bitnami.com/bitnami
@@ -12,18 +12,18 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: {{ .name }}
-  namespace: {{ .namespace }}
+  name: {{ template "robustName" .Release.Name }}
+  namespace: {{ .Release.Namespace }}
 spec:
   interval: 60m
-  releaseName: {{ .name }}
+  releaseName: {{ template "robustName" .Release.Name }}
   chart:
     spec:
       chart: redis
       version: 20.1.3
       sourceRef:
         kind: HelmRepository
-        name: "{{ .name }}-bitnami"
+        name: {{ template "robustName" .Release.Name }}
       interval: 10m
   values:
     architecture: standalone
@@ -32,9 +32,9 @@ spec:
     #replica:
     #  replicaCount: 1
     commonAnnotations:
-      gimlet.io/belongs-to: {{ .app }}
+      gimlet.io/belongs-to: {{ .Values.app }}
     auth:
-      existingSecret: "{{ .name }}-credentials"
+      existingSecret: {{ template "robustName" .Release.Name }}
     commonConfiguration: |-
       # Enable AOF https://redis.io/topics/persistence#append-only-file
       appendonly yes
@@ -59,10 +59,10 @@ spec:
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
-  name: "{{ .name }}-credentials"
-  namespace: {{ .namespace }}
+  name: {{ template "robustName" .Release.Name }}
+  namespace: {{ .Release.Namespace }}
   annotations:
     sealedsecrets.bitnami.com/cluster-wide: "true"
 spec:
   encryptedData:
-    redis-password: {{ .encryptedPassword }}
+    redis-password: {{ .Values.encryptedPassword }}

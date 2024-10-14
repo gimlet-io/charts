@@ -2,8 +2,8 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "#redis",
   "type": "object",
-  "title": "Redis",
-  "description": "Install a Redis instance dedicated for your application",
+  "title": "Containerized Redis",
+  "description": "Install a Redis instance dedicated to your application",
   "properties": {
     "encryptedPassword": {
       "$id": "#/properties/encryptedPassword",

@@ -1,0 +1,4 @@
+tfModule:
+  url: https://github.com/gimlet-io/tfmodules
+  hash: df0316bfc4d5163edce1ffcf0ed0d667cc263bd0
+  path: azure/postgresql-flexible-server-database

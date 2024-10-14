@@ -1,0 +1,20 @@
+[
+  {
+    "schemaIDs": [
+      "#tfmodule"
+    ],
+    "uiSchema": {
+      "#tfmodule": {
+        "password": {
+          "ui:field": "encryptedSingleLineWidget"
+        }
+      }
+    },
+    "metaData": {
+      "link": {
+        "label": "Azure Database for PostgreSQL Database",
+        "href": "https://github.com/gimlet-io/charts/tree/main/azure-database-for-postgresql-database/Readme.md"
+      }
+    }
+  }
+]
