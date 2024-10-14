@@ -7,7 +7,8 @@
       "#azuredb": {
         "password": {
           "ui:field": "encryptedSingleLineWidget"
-        }
+        },
+        "ui:order": ["database", "user", "password"]
       }
     },
     "metaData": {
