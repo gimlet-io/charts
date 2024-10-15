@@ -61,7 +61,6 @@ metadata:
   namespace: flux-system
 type: Opaque
 stringData:
-  password: {{ .Values.password }}
   host: postgresql.infrastructure.svc.cluster.local
   admin_username: postgres
   admin_password: super-secret-password
