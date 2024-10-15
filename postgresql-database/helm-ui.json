@@ -8,6 +8,9 @@
         "password": {
           "ui:field": "encryptedSingleLineWidget"
         },
+        "app": {
+          "ui:widget": "hidden"
+        },
         "ui:order": ["database", "username", "password", "app"]
       }
     },
