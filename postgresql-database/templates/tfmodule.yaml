@@ -1,0 +1,47 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: {{ template "robustName" .Release.Name }}
+  namespace: flux-system
+spec:
+  interval: 24h0m0s
+  ref:
+    {{- if .Values.tfModule.tag }}
+    tag: {{ .Values.tfModule.tag }}
+    {{- end }}
+    {{- if .Values.tfModule.branch }}
+    branch: {{ .Values.tfModule.branch }}
+    {{- end }}
+    {{- if .Values.tfModule.hash }}
+    commit: {{ .Values.tfModule.hash }}
+    {{- end }}
+  url: {{ .Values.tfModule.url }}
+---
+apiVersion: infra.contrib.fluxcd.io/v1alpha2
+kind: Terraform
+metadata:
+  name: {{ template "robustName" .Release.Name }}
+  namespace: flux-system
+spec:
+  approvePlan: auto
+  interval: 24h0m0s
+  path: {{ .Values.tfModule.path }}
+  sourceRef:
+    kind: GitRepository
+    name: {{ template "robustName" .Release.Name }}
+  vars:
+  - name: host
+    value: postgresql.infrastructure.svc.cluster.local
+  - name: admin_username
+    value: postgres
+  - name: admin_password
+    value: super-secret-password
+  - name: database
+    value: {{ .Values.database }}
+  - name: username
+    value: {{ .Values.username }}
+  - name: password
+    value: {{ .Values.password }}  
+  writeOutputsToSecret:
+    name: {{ include "tf-module.fullname" . }}-output

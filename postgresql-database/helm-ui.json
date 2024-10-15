@@ -1,0 +1,21 @@
+[
+  {
+    "schemaIDs": [
+      "#postgresdb"
+    ],
+    "uiSchema": {
+      "#postgresdb": {
+        "password": {
+          "ui:field": "encryptedSingleLineWidget"
+        },
+        "ui:order": ["database", "username", "password"]
+      }
+    },
+    "metaData": {
+      "link": {
+        "label": "PostgreSQL Database",
+        "href": "https://github.com/gimlet-io/charts/tree/main/postgresql-database/Readme.md"
+      }
+    }
+  }
+]

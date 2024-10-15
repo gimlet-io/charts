@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "#postgresdb",
+  "type": "object",
+  "title": "PostgreSQL Database in a Centralized Postgres Instance",
+  "description": "Creates a database in an existing PostgreSQL server",
+  "properties": {
+    "database": {
+      "$id": "#/properties/name",
+      "type": "string",
+      "title": "Database Name"
+    },
+    "username": {
+      "$id": "#/properties/username",
+      "type": "string",
+      "title": "Username"
+    },
+    "password": {
+      "$id": "#/properties/encryptedPassword",
+      "type": "string",
+      "title": "Password"
+    },
+    "app": {
+      "$id": "#/properties/app",
+      "type": "string",
+      "title": "App",
+      "default": "{{ .APP }}"
+    }
+  }
+}

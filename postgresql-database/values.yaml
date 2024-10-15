@@ -1,0 +1,4 @@
+tfModule:
+  url: https://github.com/gimlet-io/tfmodules
+  branch: main
+  path: postgresql-database
