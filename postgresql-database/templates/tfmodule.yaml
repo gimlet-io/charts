@@ -31,17 +31,37 @@ spec:
     kind: GitRepository
     name: {{ template "robustName" .Release.Name }}
   vars:
-  - name: host
-    value: postgresql.infrastructure.svc.cluster.local
-  - name: admin_username
-    value: postgres
-  - name: admin_password
-    value: super-secret-password
   - name: database
     value: {{ .Values.database }}
   - name: username
     value: {{ .Values.username }}
-  - name: password
-    value: {{ .Values.password }}  
+  varsFrom:
+    - kind: Secret
+      name: {{ template "robustName" .Release.Name }}
+    - kind: Secret
+      name: postgresql-admin-credentials
   writeOutputsToSecret:
     name: {{ include "tf-module.fullname" . }}-output
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: {{ template "robustName" .Release.Name }}
+  namespace: flux-system
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: "true"
+spec:
+  encryptedData:
+    password: {{ .Values.password }}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: postgresql-admin-credentials
+  namespace: flux-system
+type: Opaque
+stringData:
+  password: {{ .Values.password }}
+  host: postgresql.infrastructure.svc.cluster.local
+  admin_username: postgres
+  admin_password: super-secret-password
