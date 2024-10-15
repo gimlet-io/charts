@@ -63,4 +63,4 @@ type: Opaque
 stringData:
   host: postgresql.infrastructure.svc.cluster.local
   admin_username: postgres
-  admin_password: super-secret-password
+  admin_password: sprscrtpsswrd
