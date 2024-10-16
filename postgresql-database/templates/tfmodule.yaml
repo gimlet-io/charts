@@ -23,6 +23,8 @@ kind: Terraform
 metadata:
   name: {{ template "robustName" .Release.Name }}
   namespace: flux-system
+  annotations:
+    gimlet.io/belongs-to: {{ .Values.app }}
 spec:
   approvePlan: auto
   interval: 24h0m0s
