@@ -34,7 +34,8 @@ spec:
     name: {{ template "robustName" .Release.Name }}
   destroyResourcesOnDeletion: false
   disableDriftDetection: true
-  storeReadablePlan: "human"
+  storeReadablePlan: human
+  retryStrategy: ExponentialBackoff
   vars:
   - name: database
     value: {{ .Values.database }}
