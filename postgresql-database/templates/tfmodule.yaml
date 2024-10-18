@@ -35,7 +35,7 @@ spec:
   destroyResourcesOnDeletion: false
   disableDriftDetection: true
   storeReadablePlan: human
-  retryStrategy: ExponentialBackoff
+  retryInterval: 24h
   vars:
   - name: database
     value: {{ .Values.database }}
