@@ -45,7 +45,9 @@ spec:
     - kind: Secret
       name: {{ template "robustName" .Release.Name }}
     - kind: Secret
-      name: postgresql-admin-credentials
+      name: centralized-postgresql-admin-creds
+    - kind: ConfigMap
+      name: centralized-postgresql-admin-creds
   writeOutputsToSecret:
     name: {{ include "tf-module.fullname" . }}-output
 ---
